@@ -4,7 +4,7 @@
 #
 Name     : xkbcomp
 Version  : 1.3.1
-Release  : 5
+Release  : 6
 URL      : http://xorg.freedesktop.org/releases/individual/app/xkbcomp-1.3.1.tar.gz
 Source0  : http://xorg.freedesktop.org/releases/individual/app/xkbcomp-1.3.1.tar.gz
 Summary  : XKB keymap compiler
