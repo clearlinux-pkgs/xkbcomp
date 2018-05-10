@@ -6,7 +6,7 @@
 #
 Name     : xkbcomp
 Version  : 1.4.1
-Release  : 11
+Release  : 12
 URL      : https://xorg.freedesktop.org/releases/individual/app/xkbcomp-1.4.1.tar.gz
 Source0  : https://xorg.freedesktop.org/releases/individual/app/xkbcomp-1.4.1.tar.gz
 Source99 : https://xorg.freedesktop.org/releases/individual/app/xkbcomp-1.4.1.tar.gz.sig
