@@ -6,15 +6,16 @@
 #
 Name     : xkbcomp
 Version  : 1.4.2
-Release  : 13
+Release  : 14
 URL      : https://xorg.freedesktop.org/releases/individual/app/xkbcomp-1.4.2.tar.gz
 Source0  : https://xorg.freedesktop.org/releases/individual/app/xkbcomp-1.4.2.tar.gz
 Source99 : https://xorg.freedesktop.org/releases/individual/app/xkbcomp-1.4.2.tar.gz.sig
 Summary  : XKB keymap compiler
 Group    : Development/Tools
 License  : HPND
-Requires: xkbcomp-bin
-Requires: xkbcomp-man
+Requires: xkbcomp-bin = %{version}-%{release}
+Requires: xkbcomp-license = %{version}-%{release}
+Requires: xkbcomp-man = %{version}-%{release}
 BuildRequires : bison
 BuildRequires : pkgconfig(x11)
 BuildRequires : pkgconfig(xkbfile)
@@ -34,7 +35,7 @@ physical impairments.
 %package bin
 Summary: bin components for the xkbcomp package.
 Group: Binaries
-Requires: xkbcomp-man
+Requires: xkbcomp-license = %{version}-%{release}
 
 %description bin
 bin components for the xkbcomp package.
@@ -43,11 +44,20 @@ bin components for the xkbcomp package.
 %package dev
 Summary: dev components for the xkbcomp package.
 Group: Development
-Requires: xkbcomp-bin
-Provides: xkbcomp-devel
+Requires: xkbcomp-bin = %{version}-%{release}
+Provides: xkbcomp-devel = %{version}-%{release}
+Requires: xkbcomp = %{version}-%{release}
 
 %description dev
 dev components for the xkbcomp package.
+
+
+%package license
+Summary: license components for the xkbcomp package.
+Group: Default
+
+%description license
+license components for the xkbcomp package.
 
 
 %package man
@@ -66,7 +76,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1528420293
+export SOURCE_DATE_EPOCH=1557106142
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -78,8 +95,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1528420293
+export SOURCE_DATE_EPOCH=1557106142
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/xkbcomp
+cp COPYING %{buildroot}/usr/share/package-licenses/xkbcomp/COPYING
 %make_install
 
 %files
@@ -93,6 +112,10 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 /usr/lib64/pkgconfig/xkbcomp.pc
 
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/xkbcomp/COPYING
+
 %files man
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 /usr/share/man/man1/xkbcomp.1

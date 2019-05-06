@@ -1,0 +1,6 @@
+1.4.2
+bison
+pkgconfig(x11)
+pkgconfig(xkbfile)
+pkgconfig(xorg-macros)
+pkgconfig(xproto)
