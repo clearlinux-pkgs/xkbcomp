@@ -1,0 +1,11 @@
+--- xkbcomp-1.4.2/keycodes.c~	2018-06-07 23:17:28.000000000 +0000
++++ xkbcomp-1.4.2/keycodes.c	2019-06-06 14:47:09.623421523 +0000
+@@ -31,7 +31,7 @@
+ #include "misc.h"
+ #include "alias.h"
+ 
+-static Bool high_keycode_warned;
++static Bool high_keycode_warned = True;
+ 
+ char *
+ longText(unsigned long val, unsigned format)
