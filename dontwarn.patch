@@ -9,3 +9,14 @@
  
  char *
  longText(unsigned long val, unsigned format)
+--- xkbcomp-1.4.2/symbols.c~	2018-06-07 23:17:28.000000000 +0000
++++ xkbcomp-1.4.2/symbols.c	2019-06-23 16:20:06.578894052 +0000
+@@ -968,7 +968,7 @@
+     key->symsDefined |= (1 << ndx);
+     for (i = 0; i < nSyms; i++) {
+         if (!LookupKeysym(value->value.list.syms[i], &key->syms[ndx][i])) {
+-            WSGO1("Could not resolve keysym %s\n", value->value.list.syms[i]);
++//            WSGO1("Could not resolve keysym %s\n", value->value.list.syms[i]);
+             key->syms[ndx][i] = NoSymbol;
+         }
+     }
