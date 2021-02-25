@@ -1,5 +1,5 @@
 PKG_NAME := xkbcomp
-URL = https://xorg.freedesktop.org/releases/individual/app/xkbcomp-1.4.2.tar.gz
+URL = https://www.x.org/releases/individual/app/xkbcomp-1.4.4.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
