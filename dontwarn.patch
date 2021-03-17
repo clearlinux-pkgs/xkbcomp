@@ -1,5 +1,5 @@
 diff --git a/keycodes.c b/keycodes.c
-index c9d889f..36b7eec 100644
+index 4a8973c..86f7810 100644
 --- a/keycodes.c
 +++ b/keycodes.c
 @@ -31,7 +31,7 @@
@@ -12,15 +12,15 @@ index c9d889f..36b7eec 100644
  char *
  longText(unsigned long val, unsigned format)
 diff --git a/symbols.c b/symbols.c
-index 9df7363..9ada2f1 100644
+index 21c92be..9e35e30 100644
 --- a/symbols.c
 +++ b/symbols.c
 @@ -968,7 +968,7 @@ AddSymbolsToKey(KeyInfo * key,
      key->symsDefined |= (1 << ndx);
      for (i = 0; i < nSyms; i++) {
          if (!LookupKeysym(value->value.list.syms[i], &key->syms[ndx][i])) {
--            WARN2("Could not resolve keysym %s\n", value->value.list.syms[i]);
-+//            WARN2("Could not resolve keysym %s\n", value->value.list.syms[i]);
+-            WARN("Could not resolve keysym %s\n", value->value.list.syms[i]);
++//            WARN("Could not resolve keysym %s\n", value->value.list.syms[i]);
              key->syms[ndx][i] = NoSymbol;
          }
      }

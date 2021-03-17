@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xE23B7E70B467F0BF (office@who-t.net)
 #
 Name     : xkbcomp
-Version  : 1.4.4
-Release  : 18
-URL      : https://www.x.org/releases/individual/app/xkbcomp-1.4.4.tar.gz
-Source0  : https://www.x.org/releases/individual/app/xkbcomp-1.4.4.tar.gz
-Source1  : https://www.x.org/releases/individual/app/xkbcomp-1.4.4.tar.gz.sig
+Version  : 1.4.5
+Release  : 19
+URL      : https://www.x.org/releases/individual/app/xkbcomp-1.4.5.tar.gz
+Source0  : https://www.x.org/releases/individual/app/xkbcomp-1.4.5.tar.gz
+Source1  : https://www.x.org/releases/individual/app/xkbcomp-1.4.5.tar.gz.sig
 Summary  : XKB keymap compiler
 Group    : Development/Tools
 License  : HPND
@@ -70,8 +70,8 @@ man components for the xkbcomp package.
 
 
 %prep
-%setup -q -n xkbcomp-1.4.4
-cd %{_builddir}/xkbcomp-1.4.4
+%setup -q -n xkbcomp-1.4.5
+cd %{_builddir}/xkbcomp-1.4.5
 %patch1 -p1
 
 %build
@@ -79,7 +79,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1614284431
+export SOURCE_DATE_EPOCH=1616019333
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -99,10 +99,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1614284431
+export SOURCE_DATE_EPOCH=1616019333
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xkbcomp
-cp %{_builddir}/xkbcomp-1.4.4/COPYING %{buildroot}/usr/share/package-licenses/xkbcomp/a08228c5c15d51b7072c406b0d30d862af339ada
+cp %{_builddir}/xkbcomp-1.4.5/COPYING %{buildroot}/usr/share/package-licenses/xkbcomp/67b69067a1b7bf806fbe7a83fd01884393c15fe0
 %make_install
 
 %files
@@ -118,7 +118,7 @@ cp %{_builddir}/xkbcomp-1.4.4/COPYING %{buildroot}/usr/share/package-licenses/xk
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/xkbcomp/a08228c5c15d51b7072c406b0d30d862af339ada
+/usr/share/package-licenses/xkbcomp/67b69067a1b7bf806fbe7a83fd01884393c15fe0
 
 %files man
 %defattr(0644,root,root,0755)
